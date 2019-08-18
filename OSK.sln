@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OSK", "OSK\OSK.vbproj", "{DB5140EF-AE58-4696-9330-A4E26383666E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB5140EF-AE58-4696-9330-A4E26383666E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5140EF-AE58-4696-9330-A4E26383666E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5140EF-AE58-4696-9330-A4E26383666E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5140EF-AE58-4696-9330-A4E26383666E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBF17229-AB4F-4137-939F-781C5F051934}
+	EndGlobalSection
+EndGlobal

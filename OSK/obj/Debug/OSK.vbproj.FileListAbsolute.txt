@@ -1,0 +1,11 @@
+C:\Users\Randy Miller\source\repos\OSK\OSK\bin\Debug\OSK.dll
+C:\Users\Randy Miller\source\repos\OSK\OSK\bin\Debug\OSK.pdb
+C:\Users\Randy Miller\source\repos\OSK\OSK\bin\Debug\OSK.xml
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.vbprojAssemblyReference.cache
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.Resources.resources
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.OSK.resources
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.vbproj.GenerateResource.cache
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.vbproj.CoreCompileInputs.cache
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.dll
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.xml
+C:\Users\Randy Miller\source\repos\OSK\OSK\obj\Debug\OSK.pdb
