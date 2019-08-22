@@ -10,6 +10,8 @@ Public Class OSK
     Private caps As Boolean = False
     Private show_Case As Boolean = False
     Private key As New List(Of Keys)
+    Private passkey As String = "gtsadmin2964"
+    Private keypress As String = ""
 
     Private Function GetKeyFromChar(c As Char) As Keys
         Dim vkKeyCode As Short = VkKeyScanExW(c, InputLanguage.CurrentInputLanguage.Handle)
@@ -37,6 +39,14 @@ Public Class OSK
         End Get
         Set(value As Boolean)
             show_Case = value
+        End Set
+    End Property
+    Public Property PassCode As String
+        Get
+            Return passkey
+        End Get
+        Set(value As String)
+            passkey = value
         End Set
     End Property
     Private Sub OSK_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -75,6 +85,7 @@ Public Class OSK
                 End If
             Case "shift"
                 key.Add(Keys.ShiftKey)
+                caps = True
             Case "space"
                 key.Add(Keys.Space)
             Case Else
@@ -84,7 +95,9 @@ Public Class OSK
                 key.Add(GetKeyFromChar(this_key))
         End Select
         If caps And Not key.Contains(Keys.ShiftKey) Then key.Add(Keys.ShiftKey)
+
         RaiseEvent Button_Down(key.ToArray)
+
     End Sub
     Private Sub btn_Up(sender As Object, e As MouseEventArgs)
         If LCase(sender.text) = "caps lock" Then
@@ -119,6 +132,7 @@ Public Class OSK
                 End If
             Case "shift"
                 key.Add(Keys.ShiftKey)
+                caps = False
             Case "space"
                 key.Add(Keys.Space)
             Case Else
@@ -149,6 +163,7 @@ Public Class OSK
             Case "space"
                 RaiseEvent Letter_Pressed(" ")
                 RaiseEvent Key_Pressed(New KeyPressEventArgs(" "))
+                update_passkey(sender)
             Case Else
                 If caps Then
                     RaiseEvent Letter_Pressed(sender.text)
@@ -157,6 +172,7 @@ Public Class OSK
                     RaiseEvent Letter_Pressed(LCase(sender.text))
                     RaiseEvent Key_Pressed(New KeyPressEventArgs(LCase(sender.text)))
                 End If
+                update_passkey(sender)
         End Select
 
         key.Clear()
@@ -194,9 +210,35 @@ Public Class OSK
         Next
     End Sub
 
+    Private Sub update_passkey(sender As Object)
+        Select Case caps
+            Case True
+                If keypress.Length < passkey.Length And sender.text.length = 1 Then
+                    keypress &= UCase(sender.text)
+                ElseIf sender.text.length = 1 Then
+                    keypress = keypress.Remove(0, 1)
+                    keypress &= UCase(sender.text)
+                End If
+            Case False
+                If keypress.Length < passkey.Length And sender.text.length = 1 Then
+                    keypress &= LCase(sender.text)
+                ElseIf sender.text.length = 1 Then
+                    keypress = keypress.Remove(0, 1)
+                    keypress &= LCase(sender.text)
+                End If
+        End Select
+
+        If keypress = passkey Then
+            RaiseEvent Password_Entered()
+            MsgBox("Password Entered")
+        End If
+    End Sub
+
     Public Event Button_Down(Button() As Keys)
     Public Event Button_Up(Button() As Keys)
     Public Event Button_Pressed(Button() As Keys)
     Public Event Letter_Pressed(key As Char)
     Public Event Key_Pressed(key As KeyPressEventArgs)
+    Public Event Password_Entered()
+
 End Class
